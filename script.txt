@@ -48,6 +48,7 @@ script {
     if (sh(script: "docker inspect $CONTAINER_NAME > /dev/null 2>&1", returnStatus: true) == 0) {
         sh "docker stop $CONTAINER_NAME"
         sh "docker rm -f $CONTAINER_NAME"
+        sh "docker system prune -af"
     }
 }
                     }
